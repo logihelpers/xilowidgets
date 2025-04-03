@@ -13,6 +13,8 @@ dependencies:
   flutter_slidable_panel:
   flutter:
     sdk: flutter
+  interactive_viewer_2: ^0.0.10
+  flutter_code_editor: ^0.3.3
 
 dev_dependencies:
   flutter_test:
