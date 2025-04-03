@@ -1,1 +1,0 @@
-from xilowidgets.revealer import Revealer
