@@ -1,0 +1,17 @@
+README.md
+pyproject.toml
+src/flutter/xilowidgets/CHANGELOG.md
+src/flutter/xilowidgets/LICENSE
+src/flutter/xilowidgets/README.md
+src/flutter/xilowidgets/pubspec.lock
+src/flutter/xilowidgets/pubspec.yaml
+src/flutter/xilowidgets/lib/xilowidgets.dart
+src/flutter/xilowidgets/lib/src/create_control.dart
+src/flutter/xilowidgets/lib/src/revealer.dart
+src/xilowidgets/__init__.py
+src/xilowidgets/revealer.py
+src/xilowidgets.egg-info/PKG-INFO
+src/xilowidgets.egg-info/SOURCES.txt
+src/xilowidgets.egg-info/dependency_links.txt
+src/xilowidgets.egg-info/requires.txt
+src/xilowidgets.egg-info/top_level.txt
