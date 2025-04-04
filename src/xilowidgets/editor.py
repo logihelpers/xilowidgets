@@ -28,6 +28,7 @@ class EditorTheme(Enum):
     OBSIDIAN = "obsidian"
     VS2015 = "vs2015"
     XCODE = "xcode"
+    IDEA = "idea"
 
 class Editor(ConstrainedControl, ScrollableControl):
     """

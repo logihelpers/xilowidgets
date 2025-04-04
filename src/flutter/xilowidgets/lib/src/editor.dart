@@ -16,6 +16,7 @@ import 'package:flutter_highlight/themes/monokai-sublime.dart';
 import 'package:flutter_highlight/themes/obsidian.dart';
 import 'package:flutter_highlight/themes/vs2015.dart';
 import 'package:flutter_highlight/themes/xcode.dart';
+import 'package:flutter_highlight/themes/idea.dart';
 import 'package:xilowidgets/src/create_control.dart';
 
 class EditorControl extends StatefulWidget {
@@ -153,6 +154,8 @@ class _EditorControlState extends State<EditorControl> with FletStoreMixin {
         return vs2015Theme;
       case "xcode":
         return xcodeTheme;
+      case "idea":
+        return ideaTheme;
       default:
         return defaultTheme;
     }
