@@ -6,9 +6,7 @@ import 'package:flutter_highlight/themes/a11y-light.dart';
 import 'package:flutter_highlight/themes/agate.dart';
 import 'package:flutter_highlight/themes/androidstudio.dart';
 import 'package:flutter_highlight/themes/arta.dart';
-import 'package:flutter_highlight/themes/ascetic.dart';
 import 'package:flutter_highlight/themes/atom-one-dark.dart';
-import 'package:flutter_highlight/themes/atom-one-light.dart';
 import 'package:flutter_highlight/themes/default.dart';
 import 'package:flutter_highlight/themes/dark.dart';
 import 'package:flutter_highlight/themes/monokai.dart';
@@ -17,6 +15,9 @@ import 'package:flutter_highlight/themes/obsidian.dart';
 import 'package:flutter_highlight/themes/vs2015.dart';
 import 'package:flutter_highlight/themes/xcode.dart';
 import 'package:flutter_highlight/themes/idea.dart';
+import 'package:flutter_highlight/themes/solarized-light.dart';
+import 'package:flutter_highlight/themes/solarized-dark.dart';
+
 import 'package:xilowidgets/src/create_control.dart';
 
 class EditorControl extends StatefulWidget {
@@ -134,12 +135,8 @@ class _EditorControlState extends State<EditorControl> with FletStoreMixin {
         return androidstudioTheme;
       case "arta":
         return artaTheme;
-      case "ascetic":
-        return asceticTheme;
       case "atom-one-dark":
         return atomOneDarkTheme;
-      case "atom-one-light":
-        return atomOneLightTheme;
       case "default":
         return defaultTheme;
       case "dark":
@@ -150,6 +147,10 @@ class _EditorControlState extends State<EditorControl> with FletStoreMixin {
         return monokaiSublimeTheme;
       case "obsidian":
         return obsidianTheme;
+      case "solarized-light":
+        return solarizedLightTheme;
+      case "solarized-dark":
+        return solarizedDarkTheme;
       case "vs2015":
         return vs2015Theme;
       case "xcode":
