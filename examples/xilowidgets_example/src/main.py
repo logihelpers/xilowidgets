@@ -19,6 +19,10 @@ def main(page: ft.Page):
     def print_size(db: Drawboard, width: float, height: float):
         db.shapes[0].text = f"{width}x{height}"
         db.update()
+    
+    def print_mode(db: Drawboard, theme_mode: ft.ThemeMode):
+        db.shapes[1].text = theme_mode.name
+        db.update()
 
     page.add(
         ft.Row(
@@ -43,7 +47,8 @@ def main(page: ft.Page):
                 ),
                 db := Drawboard(
                     [
-                        cv.Text(0, 0, "Resize the window")
+                        cv.Text(0, 0, "Resize the window"),
+                        cv.Text(0, 30, "Change the System Dark Mode")
                     ],
                     expand=True
                 )
@@ -70,7 +75,10 @@ def main(page: ft.Page):
             font_size=36,
             gutter_width=150
         ),
-        MediaQuery(lambda ev: print_size(db, ev.window_width, ev.window_height))
+        MediaQuery(
+            lambda ev: print_size(db, ev.window_width, ev.window_height),
+            lambda ev: print_mode(db, ev.theme_mode)
+        )
     )
 
 ft.app(main)

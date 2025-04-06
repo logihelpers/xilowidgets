@@ -16,6 +16,17 @@ class MediaQuerySizeChangeEvent {
       };
 }
 
+class MediaQueryThemeModeChangeEvent {
+  final bool themeMode;
+
+  MediaQueryThemeModeChangeEvent(
+      {required this.themeMode});
+
+  Map<String, dynamic> toJson() => <String, dynamic>{
+        'theme_mode': themeMode,
+      };
+}
+
 class MediaQueryControl extends StatefulWidget with FletStoreMixin {
   final Control? parent;
   final Control control;
@@ -33,13 +44,22 @@ class MediaQueryControl extends StatefulWidget with FletStoreMixin {
 
 class _MediaQueryControlState extends State<MediaQueryControl> with FletStoreMixin {
 
-  Future<void> returnToFlet(double _width, double _height) async {
+  Future<void> returnSizeToFlet(double _width, double _height) async {
     widget.backend.triggerControlEvent(
       widget.control.id, 
       "size_change", 
       json.encode(MediaQuerySizeChangeEvent(
           width: _width,
           height: _height)
+      .toJson()));
+  }
+
+  Future<void> returnThemeModeToFlet(bool _themeMode) async {
+    widget.backend.triggerControlEvent(
+      widget.control.id, 
+      "theme_mode_change", 
+      json.encode(MediaQueryThemeModeChangeEvent(
+          themeMode: _themeMode)
       .toJson()));
   }
 
@@ -51,9 +71,14 @@ class _MediaQueryControlState extends State<MediaQueryControl> with FletStoreMix
 
     double screenWidth = mediaQuery.size.width;
     double screenHeight = mediaQuery.size.height;
+    bool mode = mediaQuery.platformBrightness == Brightness.dark;
     
     () async {
-      returnToFlet(screenWidth, screenHeight);
+      returnSizeToFlet(screenWidth, screenHeight);
+    }();
+
+    () async {
+      returnThemeModeToFlet(mode);
     }();
 
     Widget wg = SizedBox.shrink();
