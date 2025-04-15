@@ -6,7 +6,6 @@ from xilowidgets import Revealer, Editor, Zoomer, Switcher, Drawboard, MediaQuer
 def main(page: ft.Page):
     page.vertical_alignment = ft.MainAxisAlignment.CENTER
     page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
-    page.theme_mode = ft.ThemeMode.LIGHT
 
     def hide(pane: Revealer):
         pane.content_hidden = not pane.content_hidden
@@ -57,6 +56,8 @@ def main(page: ft.Page):
         nays := Switcher(
             height=100,
             orientation=Switcher.Orientation.HORIZONTAL,
+            animation_duration=3000,
+            animation_curve=ft.AnimationCurve.BOUNCE_OUT,
             controls=[
                 ft.ElevatedButton(
                     "SWITCH",
