@@ -105,11 +105,12 @@ class Switcher(ConstrainedControl):
         self._set_attr("animation_duration", duration)
     
     @property
-    def animation_curve(self) -> AnimationCurve:
+    def animation_curve(self) -> Optional[AnimationCurve]:
         return self._get_attr("animation_curve")
     
     @animation_curve.setter
-    def animation_curve(self, curve: AnimationCurve):
+    def animation_curve(self, curve: Optional[AnimationCurve]):
+        curve = AnimationCurve.LINEAR if curve is None else curve
         self._set_attr("animation_curve", curve.value)
 
     # controls

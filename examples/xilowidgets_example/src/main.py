@@ -1,7 +1,7 @@
 import flet as ft
 import flet.canvas as cv
 
-from xilowidgets import Revealer, Editor, Zoomer, Switcher, Drawboard, MediaQuery, MediaQuerySizeChangeEvent
+from xilowidgets import Revealer, Editor, Zoomer, Switcher, Drawboard, MediaQuery, MediaQuerySizeChangeEvent, XDialog
 
 def main(page: ft.Page):
     page.vertical_alignment = ft.MainAxisAlignment.CENTER
@@ -22,6 +22,23 @@ def main(page: ft.Page):
     def print_mode(db: Drawboard, theme_mode: ft.ThemeMode):
         db.shapes[1].text = theme_mode.name
         db.update()
+    
+    def show_dialog():
+        dialog = XDialog(
+            title=ft.Text("Please confirm"),
+            content=ft.Text("Do you really want to delete all those files?"),
+            launch_direction=XDialog.LaunchDirection.CENTER,
+            animation_curve=ft.AnimationCurve.ELASTIC_IN_OUT,
+            minimum_scale=0.1,
+            maximum_scale=1,
+            offset_scale=500,
+            open_duration=500,
+            actions=[
+                ft.TextButton("Close", on_click = lambda e: page.close(dialog)),
+            ],
+            actions_alignment=ft.MainAxisAlignment.END,
+        )
+        page.open(dialog)
 
     page.add(
         ft.Row(
@@ -70,6 +87,12 @@ def main(page: ft.Page):
                     on_click=lambda e: hide(pane)
                 ),
             ]
+        ),
+        ft.ElevatedButton(
+            "DIALOG",
+            width=500,
+            height=100,
+            on_click=lambda e: show_dialog()
         ),
         Editor(
             expand=True,

@@ -1,5 +1,6 @@
 import 'package:flet/flet.dart';
 import 'package:highlight/highlight_core.dart';
+import 'package:xilowidgets/src/xdialog.dart';
 import 'package:xilowidgets/src/media_query.dart';
 
 import 'drawboard.dart';
@@ -84,6 +85,15 @@ CreateControlFactory createControl = (CreateControlArgs args) {
     case "mediaquery":
       return MediaQueryControl(
         control: args.control, 
+        backend: args.backend
+      );
+    case "xdialog":
+      return XDialogControl(
+        control: args.control, 
+        children: args.children, 
+        parentDisabled: args.parentDisabled, 
+        parentAdaptive: args.parentAdaptive, 
+        nextChild: args.nextChild, 
         backend: args.backend
       );
     default:
