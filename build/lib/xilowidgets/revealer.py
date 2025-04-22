@@ -10,6 +10,7 @@ from flet.core.box import (
     ColorFilter,
 )
 from flet.core.constrained_control import ConstrainedControl
+from flet.core.animation import AnimationCurve
 from flet.core.control import Control, OptionalNumber
 from flet.core.ref import Ref
 from flet.core.theme import Theme
@@ -40,6 +41,7 @@ class Revealer(ConstrainedControl):
         content_length: OptionalNumber = None,
         orientation: Orientation = Orientation.HORIZONTAL,
         animation_duration: OptionalNumber = None,
+        animation_curve: Optional[AnimationCurve] = None,
         border: Optional[Border] = None,
         border_radius: Optional[BorderRadiusValue] = None,
         shape: Optional[BoxShape] = None,
@@ -105,6 +107,7 @@ class Revealer(ConstrainedControl):
         self.padding = padding
         self.margin = margin
         self.alignment = alignment
+        self.animation_curve = animation_curve
         self.content_length = content_length
         self.border = border
         self.border_radius = border_radius
@@ -317,3 +320,12 @@ class Revealer(ConstrainedControl):
     def theme_mode(self, value: Optional[ThemeMode]):
         self.__theme_mode = value
         self._set_enum_attr("themeMode", value, ThemeMode)
+    
+    @property
+    def animation_curve(self) -> Optional[AnimationCurve]:
+        return self.__animation_curve
+
+    @animation_curve.setter
+    def animation_curve(self, value: Optional[AnimationCurve]):
+        self.__animation_curve = value
+        self._set_enum_attr("curve", value, AnimationCurve)

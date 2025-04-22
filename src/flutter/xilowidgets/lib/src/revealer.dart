@@ -28,6 +28,7 @@ class _RevealerControlState extends State<RevealerControl>
   late Duration _duration;
   late String _orientation;
   late double _maxLength;
+  late Curve _curve;
 
   @override
   void initState() {
@@ -35,6 +36,7 @@ class _RevealerControlState extends State<RevealerControl>
     _contentHidden = widget.control.attrBool("content_hidden", false)!;
     _orientation = widget.control.attrString("orientation", "HORIZONTAL")!;
     _maxLength = widget.control.attrDouble("content_length", 200.0) ?? 200.0;
+    _curve = parseCurve(widget.control.attrString("curve", "easeOutBack"))!;
 
     _duration = Duration(milliseconds: widget.control.attrInt("animationDuration", 300)!);
     _controller = AnimationController(
@@ -47,7 +49,7 @@ class _RevealerControlState extends State<RevealerControl>
       end: 0,
     );
     _lengthAnimation = _lengthTween.animate(
-      CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
+      CurvedAnimation(parent: _controller, curve: _curve),
     );
 
     // Set initial controller value based on content_hidden
@@ -57,7 +59,7 @@ class _RevealerControlState extends State<RevealerControl>
   void _updateAnimation(double maxLength) {
     _lengthTween.begin = maxLength;
     _lengthAnimation = _lengthTween.animate(
-      CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
+      CurvedAnimation(parent: _controller, curve: _curve),
     );
   }
 

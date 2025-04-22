@@ -54,7 +54,8 @@ def main(page: ft.Page):
                                 height=100
                             ),
                             width=100,
-                            height=100
+                            height=100,
+                            animation_curve=ft.AnimationCurve.BOUNCE_OUT
                         )
                     ),
                     minimum_scale=0.1,
