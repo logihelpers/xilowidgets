@@ -11,28 +11,57 @@ import 'switcher.dart';
 
 final Mode pseudocode = Mode(
   className: 'pseudocode',
-  case_insensitive: true, // Make keywords case-insensitive (e.g., FOR, for, For)
+  aliases: ['pseudocode'],
+  case_insensitive: false,
   keywords: {
-    'keyword': [
-      'for', 'to', 'if', 'then', 'else', 'end', 'print', 'while', 'do', 'begin'
-    ],
+    'keyword': 'INPUT OUTPUT assign IF THEN ELIF ELSE',
+    'literal': 'true false',
+    'built_in': 'AND OR NOT',
   },
   contains: [
+    // Multi-line comments
     Mode(
-      className: 'string',
-      begin: '"',
-      end: '"',
-      relevance: 0,
+      className: 'comment',
+      begin: r'/\*',
+      end: r'\*/',
+      contains: [Mode(className: 'doctag', begin: '@[A-Za-z]+')],
     ),
-    Mode(
-      className: 'number',
-      begin: r'\b\d+\b',
-      relevance: 0,
-    ),
+    // Single-line comments
     Mode(
       className: 'comment',
       begin: r'//',
       end: r'$',
+      contains: [Mode(className: 'doctag', begin: '@[A-Za-z]+')],
+    ),
+    // Numbers
+    Mode(
+      className: 'number',
+      begin: r'[0-9]+(\.[0-9]+)?',
+      relevance: 0,
+    ),
+    // Operators
+    Mode(
+      className: 'operator',
+      begin: r'[=<>!+\-*/%]=?|==|!=|>=|<=',
+      relevance: 0,
+    ),
+    // Identifiers/variables
+    Mode(
+      beginKeywords:
+          'INPUT OUTPUT assign IF THEN ELIF ELSE true false AND OR NOT',
+      className: 'keyword',
+      relevance: 10,
+    ),
+    // Identifiers/variables
+    Mode(
+      className: 'variable',
+      begin: r'\b[a-zA-Z_][a-zA-Z0-9_]*\b',
+      relevance: 1,
+    ),
+    // Braces, parentheses
+    Mode(
+      className: 'punctuation',
+      begin: r'[\(\)\[\]\{\}]',
       relevance: 0,
     ),
   ],

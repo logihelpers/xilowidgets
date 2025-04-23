@@ -1,7 +1,7 @@
 import flet as ft
 import flet.canvas as cv
 
-from xilowidgets import Revealer, Editor, Zoomer, Switcher, Drawboard, MediaQuery, MediaQuerySizeChangeEvent, XDialog
+from xilowidgets import Revealer, Editor, Zoomer, Switcher, Drawboard, MediaQuery, MediaQuerySizeChangeEvent, XDialog, EditorTheme
 
 def main(page: ft.Page):
     page.vertical_alignment = ft.MainAxisAlignment.CENTER
@@ -98,7 +98,8 @@ def main(page: ft.Page):
         Editor(
             expand=True,
             font_size=36,
-            gutter_width=150
+            gutter_width=150,
+            editor_theme=EditorTheme.SOLARIZED_LIGHT
         ),
         MediaQuery(
             lambda ev: print_size(db, ev.window_width, ev.window_height),
