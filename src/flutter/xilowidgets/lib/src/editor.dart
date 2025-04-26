@@ -51,7 +51,13 @@ class _EditorControlState extends State<EditorControl> with FletStoreMixin {
     controller = CodeController(
       language: pseudocode,
       text: widget.control.attrString("value", ""), // Initial text from control
+      params: EditorParams(
+        tabSpaces: 4
+      ),
     );
+
+    controller.autocompleter.setCustomWords(["IF", "INPUT", "OUTPUT", "THEN", "ELIF", "ELSE", "assign"]);
+    controller.popupController.enabled = widget.control.attrBool("autocomplete", false)!;
 
     // Add listener for text changes
     controller.addListener(() {

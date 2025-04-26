@@ -45,6 +45,7 @@ class Editor(ConstrainedControl, ScrollableControl):
         on_change = None,
         gutter_width: OptionalNumber = None,
         wrap: Optional[bool] = False,
+        autocomplete: Optional[bool] = False,
         #
         # Control
         #
@@ -102,6 +103,7 @@ class Editor(ConstrainedControl, ScrollableControl):
         self.on_change = on_change
         self.gutter_width = gutter_width
         self.wrap = wrap
+        self.autocomplete = autocomplete
 
     def _get_control_name(self):
         return "editor"
@@ -122,6 +124,14 @@ class Editor(ConstrainedControl, ScrollableControl):
     @wrap.setter
     def wrap(self, show: bool):
         self._set_attr("wrap", show)
+    
+    @property
+    def autocomplete(self) -> bool:
+        return self._get_attr("autocomplete")
+
+    @autocomplete.setter
+    def autocomplete(self, autocomplete: bool):
+        self._set_attr("autocomplete", autocomplete)
     
     # value
     @property
