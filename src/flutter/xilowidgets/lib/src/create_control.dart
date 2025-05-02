@@ -1,5 +1,6 @@
 import 'package:flet/flet.dart';
 import 'package:highlight/highlight_core.dart';
+import 'package:xilowidgets/src/animated_text_kit.dart';
 import 'package:xilowidgets/src/xdialog.dart';
 import 'package:xilowidgets/src/media_query.dart';
 
@@ -124,6 +125,13 @@ CreateControlFactory createControl = (CreateControlArgs args) {
         parentAdaptive: args.parentAdaptive, 
         nextChild: args.nextChild, 
         backend: args.backend
+      );
+    case "animated_text_kit":
+      return AnimatedTextKitControl(
+        parent: args.parent, 
+        control: args.control, 
+        parentDisabled: args.parentDisabled, 
+        parentAdaptive: args.parentAdaptive
       );
     default:
       return null;

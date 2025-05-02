@@ -73,11 +73,12 @@ class _RevealerControlState extends State<RevealerControl>
     bool newFill = widget.control.attrBool("fill", false)!;
     Duration newDuration = Duration(milliseconds: widget.control.attrInt("animationDuration", 300)!);
 
-    if (newLength != _maxLength || newContentHidden != _contentHidden || newFill != _fill) {
+    if (newLength != _maxLength || newContentHidden != _contentHidden || newFill != _fill || newDuration != _duration) {
       setState(() {
         _maxLength = newLength;
         _fill = newFill;
         _duration = newDuration;
+        _controller.duration = _duration;
         if (newContentHidden != _contentHidden) {
           _contentHidden = newContentHidden;
           if (_contentHidden) {
