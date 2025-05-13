@@ -173,19 +173,33 @@ class XDropdown(FormFieldControl):
         enable_filter: Optional[bool] = None,
         enable_search: Optional[bool] = None,
         editable: Optional[bool] = None,
+        max_menu_height: OptionalNumber = None,  # to be discontinued
         menu_height: OptionalNumber = None,
         menu_width: OptionalNumber = None,
         expanded_insets: PaddingValue = None,
         selected_suffix: Optional[Control] = None,
         input_filter: Optional[InputFilter] = None,
         capitalization: Optional[TextCapitalization] = None,
+        options_fill_horizontally: Optional[bool] = None,  # to be deprecated
+        padding: Optional[PaddingValue] = None,  # to be deprecated
         trailing_icon: Optional[IconValueOrControl] = None,
         leading_icon: Optional[IconValueOrControl] = None,
-        select_icon: Optional[IconValueOrControl] = None,
+        select_icon: Optional[IconValueOrControl] = None,  # to be deprecated
         selected_trailing_icon: Optional[IconValueOrControl] = None,
         on_change: OptionalEventCallable = None,
         on_focus: OptionalEventCallable = None,
         on_blur: OptionalEventCallable = None,
+        enable_feedback: Optional[bool] = None,  # to be deprecated
+        item_height: OptionalNumber = None,  # to be deprecated
+        alignment: Optional[Alignment] = None,  # to be deprecated
+        hint_content: Optional[Control] = None,  # to be deprecated
+        icon_content: Optional[Control] = None,  # to be deprecated
+        select_icon_size: OptionalNumber = None,  # to be deprecated
+        icon_size: OptionalNumber = None,  # to be deprecated
+        select_icon_enabled_color: Optional[ColorValue] = None,  # to be deprecated
+        icon_enabled_color: Optional[ColorValue] = None,  # to be deprecated
+        select_icon_disabled_color: Optional[ColorValue] = None,  # to be deprecated
+        icon_disabled_color: Optional[ColorValue] = None,  # to be deprecated
         #
         # FormField specific
         #
@@ -196,8 +210,11 @@ class XDropdown(FormFieldControl):
         text_style: Optional[TextStyle] = None,
         label: Optional[str] = None,
         label_style: Optional[TextStyle] = None,
+        icon: Optional[IconValueOrControl] = None,  # to deprecated
         border: Optional[InputBorder] = None,
         color: Optional[str] = None,
+        focused_color: Optional[str] = None,  # to be deprecated
+        focused_bgcolor: Optional[str] = None,  # to be deprecated
         border_width: OptionalNumber = None,
         border_color: Optional[str] = None,
         border_radius: Optional[BorderRadiusValue] = None,
@@ -213,7 +230,18 @@ class XDropdown(FormFieldControl):
         hint_style: Optional[TextStyle] = None,
         helper_text: Optional[str] = None,
         helper_style: Optional[TextStyle] = None,
+        prefix: Optional[Control] = None,  # to be deprecated
+        prefix_text: Optional[str] = None,  # to be deprecated
+        prefix_style: Optional[TextStyle] = None,  # to be deprecated
         prefix_icon: Optional[str] = None,  # to be deprecated
+        disabled_hint_content: Optional[Control] = None,  # to be deprecated
+        suffix: Optional[Control] = None,  # to be deprecated
+        suffix_icon: Optional[IconValueOrControl] = None,  # to be deprecated
+        suffix_text: Optional[str] = None,  # to be deprecated
+        suffix_style: Optional[TextStyle] = None,  # to be deprecated
+        counter: Optional[Control] = None,  # to be deprecated
+        counter_text: Optional[str] = None,  # to be deprecated
+        counter_style: Optional[TextStyle] = None,  # to be deprecated
         #
         # ConstrainedControl
         #

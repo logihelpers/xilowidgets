@@ -169,7 +169,7 @@ class _XDropdownControlState extends State<XDropdownControl> with FletStoreMixin
         focusedBorder: focusedBorder,
         isDense: isDense,
         isCollapsed: isCollapsed,
-        constraints: isCollapsed ? BoxConstraints.tight(const Size.fromHeight(24)) : null,
+        constraints: isDense ? BoxConstraints.tight(const Size.fromHeight(24)) : null,
         contentPadding: parseEdgeInsets(widget.control, "contentPadding"),
       );
 
