@@ -1,6 +1,6 @@
 Metadata-Version: 2.4
 Name: xilowidgets
-Version: 0.1.0
+Version: 0.9.0
 Summary: Xilogism widgets
 Author-email: Flet contributors <you@example.com>
 Project-URL: Homepage, https://mydomain.dev
@@ -9,7 +9,7 @@ Project-URL: Repository, https://github.com/MyGithubAccount/slidablepanel
 Project-URL: Issues, https://github.com/MyGithubAccount/slidablepanel/issues
 Requires-Python: >=3.9
 Description-Content-Type: text/markdown
-Requires-Dist: flet>=0.26.0
+Requires-Dist: flet>=0.28.2
 
 # slidablepanel
 Slidablepanel control for Flet

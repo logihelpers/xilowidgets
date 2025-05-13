@@ -1,6 +1,6 @@
 [project]
 name = "xilowidgets"
-version = "0.1.0"
+version = "0.9.0"
 description = "Xilogism widgets"
 readme = "README.md"
 requires-python = ">=3.9"
@@ -8,7 +8,7 @@ authors = [
     { name = "Flet contributors", email = "you@example.com" }
 ]
 dependencies = [
-    "flet>=0.26.0",
+    "flet>=0.28.2",
 ]
 
 [project.urls]
@@ -22,11 +22,11 @@ Issues = "https://github.com/MyGithubAccount/slidablepanel/issues"
 
 [tool.uv]
 dev-dependencies = [
-    "flet[all]==0.26.0",
+    "flet[all]==0.28.2",
 ]
 
 [tool.poetry.group.dev.dependencies]
-flet = {extras = ["all"], version = "0.26.0"}
+flet = {extras = ["all"], version = "0.28.2"}
 
 [tool.setuptools]
 license-files = []
