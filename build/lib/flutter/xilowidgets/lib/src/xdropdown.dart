@@ -99,6 +99,7 @@ class _XDropdownControlState extends State<XDropdownControl> with FletStoreMixin
       var menuWidth = widget.control.attrDouble("menuWidth") ?? double.infinity;
       var isDense = widget.control.attrBool("dense") ?? false;
       var isCollapsed = widget.control.attrBool("collapsed") ?? false;
+      var height = widget.control.attrDouble("height")!;
 
       FormFieldInputBorder inputBorder = parseFormFieldInputBorder(
         widget.control.attrString("border"),
@@ -169,7 +170,7 @@ class _XDropdownControlState extends State<XDropdownControl> with FletStoreMixin
         focusedBorder: focusedBorder,
         isDense: isDense,
         isCollapsed: isCollapsed,
-        constraints: isDense ? BoxConstraints.tight(const Size.fromHeight(24)) : null,
+        constraints: isDense ? BoxConstraints.tight(Size.fromHeight(height)) : null,
         contentPadding: parseEdgeInsets(widget.control, "contentPadding"),
       );
 
